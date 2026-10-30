@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="page3css/page3.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="bandeau">
+            <p>Votre beauté, vos règles. Composez votre essentiel.</p>
+        </div>
+
+        <header class="site-header">
+            <div class="logo">NUANCE</div>
+
+            <nav class="navigation">
+                <a href="#configurateur">Le studio</a>
+                <a href="#philosophie">Notre philosophie</a>
+                <a href="#aide">Besoin d'aide ?</a>
+                <img src="assets/icons/Panier.png" alt="Menu" class="nav-icon">
+
+            </nav>
+        </header>
+
+    
+    <main class="page-panier">
+
+        <h1>Mon panier</h1>
+
+        <div class="panier-container">
+
+            
+            <section class="products-zone">
+                <div class="products-list">
+
+                    
+                </div>
+
+                <button type="button"  id="open-madale">+ Ajouter un autre produit</button>
+                <div class="search-container" style="display: none;">
+                    <span id="close">close</span>
+                    <input type="text" id="search-product" placeholder="rechercher un produit...">
+                     <div id="search-resultat"></div>
+                </div>
+                
+               
+            </section>
+
+            
+            <aside class="summary-zone">
+                <h2>Résumé de la commande</h2>
+
+                <div id="subtotal">Sous-total</div>
+
+                <div id="shipping">00.00 DH</div>
+
+                <div id="total-price">00.00 DH</div>
+
+                <button type="button" id="continuer-informations">
+                    Continuer vers les informations →
+                </button>
+            </aside>
+
+        </div>
+
+    </main>
+    
+    <main class="info-page  hidden">
+        
+
+
+<div class="commande" id="commande">
+
+    <div class="bloc">
+        <h2>Informations personnelles</h2>
+
+        <div class="ligne">
+            <div class="champ">
+                <label>Prénom</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Ahmed">
+                <small id="erreurPrenom"></small>
+            </div>
+
+            <div class="champ">
+                <label>Nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Benali">
+                <small id="erreurNom"></small>
+            </div>
+        </div>
+
+        <div class="champ">
+            <label>Adresse de livraison</label>
+            <input type="text" id="adresse" name="adresse" placeholder="12 rue ..., Casablanca">
+            <small id="erreurAdresse"></small>
+        </div>
+
+        <div class="champ">
+            <label>Email</label>
+            <input type="email" id="email" name="email" placeholder="nom@exemple.com">
+            <small id="erreurEmail"></small>
+        </div>
+    </div>
+
+    <div class="bloc">
+        <h2>Carte bancaire</h2>
+
+        <div class="champ">
+            <label>Numéro de carte</label>
+            <input type="text" id="carte" name="carte" placeholder="1234 5678 9012 3456">
+            <small id="erreurCarte"></small>
+        </div>
+
+        <div class="ligne">
+            <div class="champ">
+                <label>Expiration</label>
+                <input type="text" id="expiration" name="expiration" placeholder="MM/AA">
+                <small id="erreurExpiration"></small>
+            </div>
+
+            <div class="champ">
+                <label>CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123">
+                <small id="erreurCvv"></small>
+            </div>
+        </div>
+    </div>
+
+    <button class="bouton" id="payer" type="button">
+        Payer <span id="total">0,00 DH</span>
+    </button>
+
+    <p class="succes" id="message">
+        Commande validée. Merci !
+    </p>
+
+</div>
+</main>
+
+
+
+   
+    <footer id="philosophie">
+        <span>NUANCE — L’essentiel, c’est vous.</span>
+
+        <span>Une création unique, la vôtre.</span>
+    </footer>
+    <script src="page3.js"></script>
+
+
+</body>
+
+</html>
