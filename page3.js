@@ -109,7 +109,7 @@ function creatCart(element) {
 }
 
 function affichage() {
-
+    productsList.innerHTML = ""
     for (let i = 0; i < makeupCart.length; i++) {
 
         const carteElement = creatCart(makeupCart[i]);
@@ -158,11 +158,27 @@ afficherTotale();
 
 const openmadale = document.getElementById("open-madale");
 const searchContainer = document.querySelector(".search-container");
+// const dialog = document.getElementById("dialog-message");
+// const closeDialog = document.getElementById("dialog-btn");
 
 openmadale.addEventListener("click", function () {
     searchContainer.style.display = "block";
     affichageRecu()
 });
+document.querySelector("#close").addEventListener("click",()=>{
+    searchContainer.style.display = "none"
+})
+// closeDialog.addEventListener("click", function () {
+//     dialog.closest();
+    
+// })
+
+
+
+
+
+
+
 const searchInput = document.getElementById("search-product");
 const searchResultat = document.getElementById("search-resultat");
 searchInput.addEventListener("input", function () {
@@ -195,13 +211,25 @@ function affichageRecu() {
 }
 
 function addNewProduct(product) {
+
+    for (let p of makeupCart) {
+        if (p.id === product.id) {
+            p.quantity++;
+            affichage();
+            subtotalprice.textContent = calculerTotal().toFixed(2) + "DH";
+            return
+        }
+    }
     makeupCart.push(product);
     productsList.appendChild(creatCart(product));
-    
     subtotalprice.textContent = calculerTotal().toFixed(2) + "DH";
     
 
-}
+} 
+
+
+
+
 
 
 
