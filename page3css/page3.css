@@ -365,6 +365,22 @@ footer span:last-child {
     color: #e5d9e2;
     padding: 10px;
 }
-/* .search-container.hide{
-    display: block;
-} */
+.hidden {
+    display: none;
+}
+
+
+
+
+
+.info-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 20px;
+    background-color: var(--color-background, #F5EEE8);
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}

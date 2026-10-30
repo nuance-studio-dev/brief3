@@ -226,6 +226,56 @@ function addNewProduct(product) {
     
 
 } 
+const btnContinuer= document.getElementById("continuer-informations");
+const paniePage=document.querySelector(".page-panier");
+const infoPage=document.querySelector(".info-page");
+btnContinuer.addEventListener("click",function(){
+    paniePage.classList.add("hidden");
+    infoPage.classList.remove("hidden");
+})
+const prenom = document.getElementById("prenom").value.trim();
+const nom = document.getElementById("nom").value.trim();
+const Adresse = document.getElementById("adresse").value.trim();
+const email= document.getElementById("email").value.trim();
+
+
+
+const erreurPrenom = document.getElementById("erreurPrenom");
+const erreurnom = document.getElementById("erreurNom");
+const erreuradress = document.getElementById("erreurAdresse");
+const erreuremail = document.getElementById("erreurEmail");
+
+const boutonPayer = document.getElementById("payer");
+const message = document.getElementById("message");
+message.style.display="none";
+boutonPayer.addEventListener("click",function(){
+    erreurPrenom.innerHTML="";
+    erreurnom.innerHTML="";
+    erreuradress.innerHTML="";
+    erreuremail.innerHTML="";
+    let valide = true;
+    const regexPrenom = /^[a-zA-ZÀ-ÿ\s'-]+$/;
+    if(prenom === ""){
+        //  console.log("Veuillez saisir votre prénom.");
+         erreurPrenom.innerHTML ="Veuillez saisir votre prénom."
+    }else if(!regexPrenom.test(prenom)){
+       erreurPrenom.innerHTML="Prénom invalide.";
+        console.log("Prénom invalide.");
+
+    }
+    }
+    const regexNom = 
+    if(nom === ""){
+        //  console.log("Veuillez saisir votre nom.");
+         erreurPrenom.innerHTML ="Veuillez saisir votre prénom."
+    }else if(!regexNom.test(nom)){
+       erreurom.innerHTML="nom invalide.";
+        // console.log("nom invalide.");
+        }
+
+    
+
+)
 
 
 
