@@ -23,7 +23,7 @@ const descriEror = document.getElementById("erorDescri");
 const promoError = document.getElementById("promo");
 const dateError = document.getElementById("time");
 const stockError=document.getElementById("stocke");
-const typeError=document.getElementById("errotype")
+const typeError=document.getElementById("errorType")
 
 
 const regexNom = /^[a-zA-ZÀ-ÿ0-9\s'-]{3,50}$/;
@@ -40,6 +40,7 @@ btnNext.addEventListener("click", function (event) {
     promoError.textContent = "";
     stockError.textContent="";
     typeError.textContent="";
+    
 
 
     const texte = description.value.trim();
@@ -90,9 +91,20 @@ btnNext.addEventListener("click", function (event) {
             product.description=description.value.trim();
             product.type=typeProduit.value;
             console.log(product);
-            
-        }
 
+//             Swal.fire({
+//   title: "valide",
+//   icon: "success",
+//   draggable: true
+// });
+            
+        }else{
+            Swal.fire({
+            icon: "error",
+            title: "Formulaire invalide",
+            text: "Veuillez corriger les erreurs avant de continuer."
+        });
+        }
     })
 promotion.addEventListener("change", function () {
 
