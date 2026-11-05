@@ -143,12 +143,20 @@ nextBtn.addEventListener("click",function(){
     let valide=true;
     textError.textContent="";
     const produitTexture = document.querySelector('input[name="Texture"]:checked');
+    const typeSkin=document.querySelectorAll('input[name="skinType"]:checked');
 
     if(!produitTexture){
         textError.textContent="Veuillez choisir une texture.";
         valide=false;
     } 
     if(valide){
+
+         product.skinType = [];
+
+        typeSkin.forEach(function(element) {
+            product.skinType.push(element.value.trim());
+        });
+
         product.texture=produitTexture.value;
         product.vegan=veganEthiques.checked;
         product.Crueltyfree = cruelty.checked;
