@@ -6,10 +6,6 @@ const page2=document.getElementById("etape2");
 
 
 
-
-
-
-
 const formProduit = document.getElementById("productForm");
 const btnNext = document.getElementById("nextBtn");
 
@@ -118,6 +114,8 @@ btnNext.addEventListener("click", function (event) {
         });
         }
     })
+
+
 promotion.addEventListener("change", function () {
 
     if (promotion.checked) {
@@ -130,13 +128,14 @@ promotion.addEventListener("change", function () {
 
 
 // PAGE2
-const nextBtn=document.getElementById("nextStep3");
+const nextBtn=document.getElementById("suivi");
 
 const textureProduit=document.querySelectorAll('input[name="Texture"]');
 const textError=document.getElementById("textureError");
 
 const veganEthiques=document.getElementById("Vegan");
 const cruelty=document.getElementById("Cruelty-free");
+const page3=document.getElementById("etape3");
 
 
 nextBtn.addEventListener("click",function(){
@@ -161,11 +160,39 @@ nextBtn.addEventListener("click",function(){
         product.vegan=veganEthiques.checked;
         product.Crueltyfree = cruelty.checked;
         console.log(product);
+        page2.hidden=true;
+            page3.hidden=false;
+
+    } else{
+        Swal.fire({
+            icon: "error",
+            title: "Formulaire invalide",
+            text: "Veuillez corriger les erreurs avant de continuer."
+        });
 
     }
 
 
 })
+
+
+
+const productCont=document.getElementById("productContainer");
+function affichage(){
+    productCont.innerHTML="";
+    const card=document.createElement("div");
+    card.classList.add("product-card");
+    const title=document.createElement("h3");
+    title.textContent=product.name;
+    const type = document.createElement("p");
+    type.textContent="Type : " + product.articleType;
+    const prix=document.createElement("p");
+    prix.textContent="Prix : " + product.price + " DH";
+    card.append(title,type,prix);
+    productCont.appendChild(card)
+
+
+}
 
 
 
