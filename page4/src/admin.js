@@ -1,5 +1,15 @@
 const product={}
 
+
+const page1=document.getElementById("etape1");
+const page2=document.getElementById("etape2");
+
+
+
+
+
+
+
 const formProduit = document.getElementById("productForm");
 const btnNext = document.getElementById("nextBtn");
 
@@ -23,7 +33,7 @@ const descriEror = document.getElementById("erorDescri");
 const promoError = document.getElementById("promo");
 const dateError = document.getElementById("time");
 const stockError=document.getElementById("stocke");
-const typeError=document.getElementById("errotype")
+const typeError=document.getElementById("errorType")
 
 
 const regexNom = /^[a-zA-ZÀ-ÿ0-9\s'-]{3,50}$/;
@@ -40,6 +50,7 @@ btnNext.addEventListener("click", function (event) {
     promoError.textContent = "";
     stockError.textContent="";
     typeError.textContent="";
+    
 
 
     const texte = description.value.trim();
@@ -73,26 +84,39 @@ btnNext.addEventListener("click", function (event) {
         valide=false;
         console.log(stockProduit.value);
     }
-    if (promotion.Checked) {
-        if (discount.value === "" || Number(discount.value) < 1 || Number(discount.value) > 100) {
-            promoError.textContent = "Veuillez saisir une réduction entre 1 et 100%.";
-            valide = false;
-        }
-        }
-        if (date.value === "") {
-            dateError.textContent = "Veuillez choisir une date de fin.";
-            valide = false;
+    if (promotion.checked) {
 
-        } if (valide) {
+    if (discount.value === "" || Number(discount.value) < 1 || Number(discount.value) > 100) {
+        promoError.textContent = "Veuillez saisir une réduction entre 1 et 100%.";
+        valide = false;
+    }
+
+    if (date.value === "") {
+        dateError.textContent = "Veuillez choisir une date de fin.";
+        valide = false;
+    }
+
+}
+     if (valide) {
             product.name=nomProduit.value.trim();
             product.prix=Number(priceProduit.value);
             product.stock=Number(stockProduit.value);
             product.description=description.value.trim();
             product.type=typeProduit.value;
             console.log(product);
-            
-        }
 
+            page1.hidden=true;
+            page2.hidden=false;
+
+
+            
+        }else{
+            Swal.fire({
+            icon: "error",
+            title: "Formulaire invalide",
+            text: "Veuillez corriger les erreurs avant de continuer."
+        });
+        }
     })
 promotion.addEventListener("change", function () {
 
@@ -103,6 +127,45 @@ promotion.addEventListener("change", function () {
     }
 
 });
+
+
+// PAGE2
+const nextBtn=document.getElementById("nextStep3");
+
+const textureProduit=document.querySelectorAll('input[name="Texture"]');
+const textError=document.getElementById("textureError");
+
+const veganEthiques=document.getElementById("Vegan");
+const cruelty=document.getElementById("Cruelty-free");
+
+
+nextBtn.addEventListener("click",function(){
+    let valide=true;
+    textError.textContent="";
+    const produitTexture = document.querySelector('input[name="Texture"]:checked');
+    const typeSkin=document.querySelectorAll('input[name="skinType"]:checked');
+
+    if(!produitTexture){
+        textError.textContent="Veuillez choisir une texture.";
+        valide=false;
+    } 
+    if(valide){
+
+         product.skinType = [];
+
+        typeSkin.forEach(function(element) {
+            product.skinType.push(element.value.trim());
+        });
+
+        product.texture=produitTexture.value;
+        product.vegan=veganEthiques.checked;
+        product.Crueltyfree = cruelty.checked;
+        console.log(product);
+
+    }
+
+
+})
 
 
 
