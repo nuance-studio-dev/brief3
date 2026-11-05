@@ -1,5 +1,15 @@
 const product={}
 
+
+const page1=document.getElementById("etape1");
+const page2=document.getElementById("etape2");
+
+
+
+
+
+
+
 const formProduit = document.getElementById("productForm");
 const btnNext = document.getElementById("nextBtn");
 
@@ -74,17 +84,20 @@ btnNext.addEventListener("click", function (event) {
         valide=false;
         console.log(stockProduit.value);
     }
-    if (promotion.Checked) {
-        if (discount.value === "" || Number(discount.value) < 1 || Number(discount.value) > 100) {
-            promoError.textContent = "Veuillez saisir une réduction entre 1 et 100%.";
-            valide = false;
-        }
-        }
-        if (date.value === "") {
-            dateError.textContent = "Veuillez choisir une date de fin.";
-            valide = false;
+    if (promotion.checked) {
 
-        } if (valide) {
+    if (discount.value === "" || Number(discount.value) < 1 || Number(discount.value) > 100) {
+        promoError.textContent = "Veuillez saisir une réduction entre 1 et 100%.";
+        valide = false;
+    }
+
+    if (date.value === "") {
+        dateError.textContent = "Veuillez choisir une date de fin.";
+        valide = false;
+    }
+
+}
+     if (valide) {
             product.name=nomProduit.value.trim();
             product.prix=Number(priceProduit.value);
             product.stock=Number(stockProduit.value);
@@ -92,11 +105,10 @@ btnNext.addEventListener("click", function (event) {
             product.type=typeProduit.value;
             console.log(product);
 
-//             Swal.fire({
-//   title: "valide",
-//   icon: "success",
-//   draggable: true
-// });
+            page1.hidden=true;
+            page2.hidden=false;
+
+
             
         }else{
             Swal.fire({
@@ -115,6 +127,37 @@ promotion.addEventListener("change", function () {
     }
 
 });
+
+
+// PAGE2
+const nextBtn=document.getElementById("nextStep3");
+
+const textureProduit=document.querySelectorAll('input[name="Texture"]');
+const textError=document.getElementById("textureError");
+
+const veganEthiques=document.getElementById("Vegan");
+const cruelty=document.getElementById("Cruelty-free");
+
+
+nextBtn.addEventListener("click",function(){
+    let valide=true;
+    textError.textContent="";
+    const produitTexture = document.querySelector('input[name="Texture"]:checked');
+
+    if(!produitTexture){
+        textError.textContent="Veuillez choisir une texture.";
+        valide=false;
+    } 
+    if(valide){
+        product.texture=produitTexture.value;
+        product.vegan=veganEthiques.checked;
+        product.Crueltyfree = cruelty.checked;
+        console.log(product);
+
+    }
+
+
+})
 
 
 

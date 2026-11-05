@@ -47,7 +47,7 @@
 
 
 
-        <div class="product-container grid grid-cols-1 gap-8 rounded-xl border border-gray-200 bg-white p-6  ">
+        <div id="etape1"    class="product-container grid grid-cols-1 gap-8 rounded-xl border border-gray-200 bg-white p-6  ">
 
 
             <div class="product-info ">
@@ -127,74 +127,9 @@
                     </div>
 
                 </form>
+                
             </div>
-            <div id="etape2" hidden>
-                <h2>Caractéristiques</h2>
-                <p>Renseignez les caractéristiques spécifiques du produit.</p>
-                <div>
-                    <label>Texture / Fini </label>
-                    <label>
-                        <input type="radio" name="Texture" value="Mat">
-                        Mat
-                    </label>
-                    <label>
-                        <input type="radio" name="Texture" value="Brillant">
-                        Brillant
-                    </label>
-                    <label>
-                        <input type="radio" name="Texture" value="Satiné">
-                        Satiné
-                    </label>
-                    <label>
-                        <input type="radio" name="Texture" value="Poudré">
-                        Poudré
-                    </label>
-
-                </div>
-                <div>
-                    <label>Teintes disponibles</label>
-                    <div id="teintesContainer">
-
-                    </div>
-                    <button type="button" id="addTeint">Ajouter une teinte</button>
-                </div>
-                <div>
-                    <label>Type de peau adapté</label>
-                    <label>
-                        <input type="checkbox" name="skinType" value="Grasse">
-                        Grasse
-                    </label>
-                    <label>
-                        <input type="checkbox" name="skinType" value="Sèche">
-                        Sèche
-                    </label>
-                    <label>
-                        <input type="checkbox" name="skinType" value=" Mixte">
-                        Mixte
-                    </label>
-                    <label>
-                        <input type="checkbox" name="skinType" value="Sensible">
-                        Sensible
-                    </label>
-                </div>
-                <div>
-                    <label>Labels éthiques</label>
-                    <label>
-                        <input type="checkbox" id="Vegan">
-                        Vegan
-                    </label>
-                    <label>
-                        <input type="checkbox" id="Cruelty-free">
-                        Cruelty-free
-                    </label>
-                </div>
-
-            </div>
-
-
-
-        </div>
-
+           
         <div class="form-group">
 
             <label for="promotion" class="flex  items-center gap-3">
@@ -240,8 +175,29 @@
                 <span id="time" class="text-red-600"></span>
 
             </div>
+             
 
         </div>
+
+<div class="mt-8 flex justify-end gap-3 border-t border-gray-200 pt-5">
+
+            <button type="reset" id="annulation" form="productForm"
+                class="rounded-lg bg-gray-100  text-sm font-semibold text-gray-800  hover:bg-gray-200">
+                Annuler
+            </button>
+
+            <button type="button" id="nextBtn" class="rounded-lg bg-pink-900 px-8  text-sm font-semibold text-white ">
+                Suivant →
+            </button>
+
+        </div>
+            
+
+
+
+        </div>
+
+        
         <div id="etape2" hidden>
             <h2>Caractéristiques</h2>
             <p>Renseignez les caractéristiques spécifiques du produit.</p>
@@ -265,6 +221,7 @@
                 </label>
 
             </div>
+            <span id="textureError" class="text-red-600"></span>
             <div>
                 <label>Teintes disponibles</label>
                 <div id="teintesContainer">
@@ -291,6 +248,7 @@
                     Sensible
                 </label>
             </div>
+            
             <div>
                 <label>Labels éthiques</label>
                 <label>
@@ -302,23 +260,22 @@
                     Cruelty-free
                 </label>
             </div>
+            <div>
+    
+</div>
+<button type="button" id="prevBtn">
+        Précédent
+    </button>
+    <button type="button" id="nextStep3" class="class="rounded-lg bg-pink-900 px-8  text-sm font-semibold text-white "">
+        Suivant
+
+    </button>
 
         </div>
 
 
 
-        <div class="mt-8 flex justify-end gap-3 border-t border-gray-200 pt-5">
-
-            <button type="reset" id="annulation" form="productForm"
-                class="rounded-lg bg-gray-100  text-sm font-semibold text-gray-800  hover:bg-gray-200">
-                Annuler
-            </button>
-
-            <button type="button" id="nextBtn" class="rounded-lg bg-pink-900 px-8  text-sm font-semibold text-white ">
-                Suivant →
-            </button>
-
-        </div>
+        
 
 
 
