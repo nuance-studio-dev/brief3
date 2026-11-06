@@ -158,8 +158,6 @@ afficherTotale();
 
 const openmadale = document.getElementById("open-madale");
 const searchContainer = document.querySelector(".search-container");
-// const dialog = document.getElementById("dialog-message");
-// const closeDialog = document.getElementById("dialog-btn");
 
 openmadale.addEventListener("click", function () {
     searchContainer.style.display = "block";
@@ -168,10 +166,7 @@ openmadale.addEventListener("click", function () {
 document.querySelector("#close").addEventListener("click",()=>{
     searchContainer.style.display = "none"
 })
-// closeDialog.addEventListener("click", function () {
-//     dialog.closest();
-    
-// })
+
 
 
 
@@ -202,7 +197,7 @@ function affichageRecu() {
             })
 
             resultat.appendChild(btn)
-            // resultat.textContent=produit.name;
+            resultat.textContent=produit.name;
             searchResultat.appendChild(resultat);
 
         }
@@ -254,33 +249,43 @@ boutonPayer.addEventListener("click",function(){
     erreuradress.innerHTML="";
     erreuremail.innerHTML="";
     let valide = true;
-    const regexPrenom = /^[a-zA-ZÀ-ÿ\s'-]+$/;
-    if(prenom === ""){
-        //  console.log("Veuillez saisir votre prénom.");
-         erreurPrenom.innerHTML ="Veuillez saisir votre prénom."
-    }else if(!regexPrenom.test(prenom)){
-       erreurPrenom.innerHTML="Prénom invalide.";
-        console.log("Prénom invalide.");
 
-    }
-    }
-    const regexNom = 
-    if(nom === ""){
-        //  console.log("Veuillez saisir votre nom.");
-         erreurPrenom.innerHTML ="Veuillez saisir votre prénom."
-    }else if(!regexNom.test(nom)){
-       erreurom.innerHTML="nom invalide.";
-        // console.log("nom invalide.");
-        }
-
-    
-
-)
+ const prenom = document.getElementById("prenom");
+const nom = document.getElementById("nom");
 
 
+const regexPrenom = /^[a-zA-ZÀ-ÿ\s'-]+$/;
+const regexNom = /^[a-zA-ZÀ-ÿ\s'-]+$/;
+const regexAdresse = /^[a-zA-ZÀ-ÿ0-9\s,.'-]+$/;
+const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+if (prenom.value.trim() === "") {
+    erreurPrenom.textContent = "Veuillez saisir votre prénom.";
+} else if (!regexPrenom.test(prenom.value.trim())) {
+    erreurPrenom.textContent = "Prénom invalide.";
+}
+
+if (nom.value.trim() === "") {
+    erreurNom.textContent = "Veuillez saisir votre nom.";
+} else if (!regexNom.test(nom.value.trim())) {
+    erreurNom.textContent = "Nom invalide.";
+}
+if (adresse.value.trim() === "") {
+    erreuradress.innerHTML = "Veuillez saisir votre adresse.";
+
+} else if (!regexAdresse.test(adresse.value.trim())) {
+    erreuradress.innerHTML = "Adresse invalide.";
+}
+if (email.value.trim() === "") {
+    erreurEmail.innerHTML = "Veuillez saisir votre email.";
+
+} else if (!regexEmail.test(email.value.trim())) {
+    erreuremail.innerHTML = "Email invalide.";
+
+
+}
 
 
 
 
-
-
+})
